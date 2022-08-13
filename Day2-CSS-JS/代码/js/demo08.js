@@ -1,11 +1,12 @@
 window.onload=function(){
+	//下面定義的方法(更新總計)
 	updateZJ();
 	//当页面加载完成，我们需要绑定各种事件
 	//根据id获取到表格
 	var fruitTbl =  document.getElementById("tbl_fruit");
 	//获取表格中的所有的行
 	var rows = fruitTbl.rows ;
-	for(var i = 1 ; i<rows.length-1 ; i++){
+	for(var i = 1 ; i<rows.length-1 ; i++){ //去掉第一行與最後一行
 		var tr = rows[i];
 		//1.绑定鼠标悬浮以及离开时设置背景颜色事件
 		tr.onmouseover=showBGColor;

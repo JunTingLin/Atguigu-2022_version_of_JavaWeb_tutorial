@@ -3,7 +3,7 @@
 function showBGColor(){
 	//event : 当前发生的事件
 	//event.srcElement : 事件源
-	//alert(event.srcElement);
+	//alert(event.srcElement);  --> Oject
 	//alert(event.srcElement.tagName);	--> TD
 	if(event && event.srcElement && event.srcElement.tagName=="TD"){
 		var td = event.srcElement ;
