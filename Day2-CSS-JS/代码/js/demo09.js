@@ -25,7 +25,28 @@ window.onload=function(){
 			//绑定单击事件
 			img.onclick = delFruit ;
 		}
+	}
+	//根据id获取到表格
+	var insertTbl =  document.getElementById("add_fruit_div").getElementsByTagName("table")[0];
+	insertTbl.getElementsByClassName("btn")[0].onclick = addFruit ;
+	insertTbl.getElementsByClassName("btn")[1].onclick = clearAddFruit ;
+}
 
+function addFruit(){
+	var insertTbl = document.getElementById("add_fruit_div").getElementsByTagName("table")[0];
+	var fruitTbl = document.getElementById("tbl_fruit");
+	var newTr = fruitTbl.insertRow(fruitTbl.rows.length-1);
+	for(var i = 0 ; i<insertTbl.rows.length-1 ; i++){
+		newTr.insertCell(i).innerText = insertTbl.rows[i].cells[1].firstChild.value ;
+	}
+	newTr.insertCell(3);
+	updateXJ(newTr);
+	newTr.insertCell(4).innerHTML = "<img src='imgs/del.jpg' class='delImg'/>";
+}
+function clearAddFruit(){
+	var insertTbl = document.getElementById("add_fruit_div").getElementsByTagName("table")[0];
+	for(var i = 0 ; i<insertTbl.rows.length-1 ; i++){
+		insertTbl.rows[i].cells[1].firstChild.value = "";
 	}
 }
 
@@ -42,7 +63,6 @@ function delFruit(){
 			updateZJ();
 		}
 	}
-
 }
 
 //当鼠标点击单价单元格时进行价格编辑
@@ -68,7 +88,7 @@ function editPrice(){
 				input.onkeydown=ckInput;
 			}
 		}
-		
+
 	}
 }
 
