@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="01.jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/00.sql和jar/01.jar/druid-1.1.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/00.sql和jar/01.jar/kaptcha-2.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/00.sql和jar/01.jar/gson-2.2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/00.sql和jar/01.jar/mysql-connector-java-5.1.45-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
