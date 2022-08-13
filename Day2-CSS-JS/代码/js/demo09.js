@@ -33,15 +33,23 @@ window.onload=function(){
 }
 
 function addFruit(){
-	var insertTbl = document.getElementById("add_fruit_div").getElementsByTagName("table")[0];
 	var fruitTbl = document.getElementById("tbl_fruit");
 	var newTr = fruitTbl.insertRow(fruitTbl.rows.length-1);
-	for(var i = 0 ; i<insertTbl.rows.length-1 ; i++){
-		newTr.insertCell(i).innerText = insertTbl.rows[i].cells[1].firstChild.value ;
-	}
+
+	newTr.insertCell(0).innerText = document.getElementById("fname").value ;
+	newTr.insertCell(1).innerText = document.getElementById("price").value ;
+	newTr.insertCell(2).innerText = document.getElementById("fcount").value ;
 	newTr.insertCell(3);
-	updateXJ(newTr);
 	newTr.insertCell(4).innerHTML = "<img src='imgs/del.jpg' class='delImg'/>";
+
+	updateXJ(newTr);
+	newTr.onmouseover = showBGColor ;
+	newTr.onmouseout = clearBGColor
+	newTr.cells[1].onmouseover = showHand ;
+	newTr.cells[1].onclick = editPrice ;
+	newTr.cells[4].firstChild.onclick = delFruit ;
+
+	clearAddFruit();
 }
 function clearAddFruit(){
 	var insertTbl = document.getElementById("add_fruit_div").getElementsByTagName("table")[0];
