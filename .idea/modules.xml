@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/pro05-fruit1.3-jdbc/pro05-fruit1.3-jdbc.iml" filepath="$PROJECT_DIR$/pro05-fruit1.3-jdbc/pro05-fruit1.3-jdbc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/pro06-jdbc-batch-datasource/pro06-jdbc-batch-datasource.iml" filepath="$PROJECT_DIR$/pro06-jdbc-batch-datasource/pro06-jdbc-batch-datasource.iml" />
       <module fileurl="file://$PROJECT_DIR$/pro07-javaweb-begin/pro07-javaweb-begin.iml" filepath="$PROJECT_DIR$/pro07-javaweb-begin/pro07-javaweb-begin.iml" />
     </modules>
   </component>

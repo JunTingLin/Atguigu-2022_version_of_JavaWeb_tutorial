@@ -76,15 +76,9 @@ public abstract class BaseDAO<T> {
 
     //执行更新，返回影响行数
     protected int executeUpdate(String sql , Object... params){
-        boolean insertFlag = false ;
-        insertFlag = sql.trim().toUpperCase().startsWith("INSERT");
         try {
             conn = getConn();
-            if(insertFlag){
-                psmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            }else {
-                psmt = conn.prepareStatement(sql);
-            }
+            psmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             setParams(psmt,params);
             int count = psmt.executeUpdate() ;
 

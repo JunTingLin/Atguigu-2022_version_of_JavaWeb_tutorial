@@ -3,7 +3,7 @@
 addFruit:
 1.获取连接
 2.编写sql ：insert
-3.psmt
+3.psmt (PreparedStatement)
 4.填充参数 ： 4个参数
 5.执行更新
 6.释放资源
