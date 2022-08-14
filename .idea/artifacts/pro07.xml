@@ -7,6 +7,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="pro07-javaweb-begin" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/00.sql和jar/01.jar/mysql-connector-java-5.1.45-bin.jar" />
+        </element>
       </element>
     </root>
   </artifact>
