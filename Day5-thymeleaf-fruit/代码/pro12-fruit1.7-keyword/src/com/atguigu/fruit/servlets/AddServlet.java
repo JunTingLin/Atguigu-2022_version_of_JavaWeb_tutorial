@@ -30,6 +30,5 @@ public class AddServlet extends ViewBaseServlet {
         fruitDAO.addFruit(fruit);
 
         response.sendRedirect("index");
-
     }
 }
