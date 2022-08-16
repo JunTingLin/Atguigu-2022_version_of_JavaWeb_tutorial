@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 @WebServlet("/fruit.do")
@@ -25,28 +26,22 @@ public class FruitServlet extends ViewBaseServlet {
 
         String operate = request.getParameter("operate");
         if(StringUtil.isEmpty(operate)){
-            operate = "index" ;
+            operate = "index";
         }
 
-        switch(operate){
-            case "index":
-                index(request,response);
-                break;
-            case "add":
-                add(request,response);
-                break;
-            case "del":
-                del(request,response);
-                break;
-            case "edit":
-                edit(request,response);
-                break;
-            case "update":
-                update(request,response);
-                break;
-            default:
-                throw new RuntimeException("operate值非法!");
+        Method methods[] = this.getClass().getDeclaredMethods();
+        for(Method method : methods){
+            if(method.getName().equals(operate)){
+                try {
+                    method.invoke(this, request, response);
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
+        throw new RuntimeException("operate值非法!");
+
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
