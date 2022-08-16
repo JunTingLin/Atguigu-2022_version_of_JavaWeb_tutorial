@@ -29,6 +29,7 @@ public class FruitController {
             return "edit";
         }
         return "error" ;
+        //自己可以再去新增error.html頁面
     }
 
     private String del(Integer fid  ){

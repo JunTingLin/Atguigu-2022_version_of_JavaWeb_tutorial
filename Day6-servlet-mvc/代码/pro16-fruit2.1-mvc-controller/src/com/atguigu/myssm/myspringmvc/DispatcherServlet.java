@@ -98,6 +98,9 @@ public class DispatcherServlet extends ViewBaseServlet{
                     //1.统一获取请求参数
 
                     //1-1.获取当前方法的参数，返回参数数组
+                    //注意:此處要去獲得方法實際的參數名
+                    //例如:index方法第一個參數名"oper"，再去request.getParameter("oper")取值，再傳入方法內
+                    //要去idea java編譯器裡設定-parameters(編譯時解析參數名)，否則index第一個參數名預設"arg0"
                     Parameter[] parameters = method.getParameters();
                     //1-2.parameterValues 用来承载参数的值
                     Object[] parameterValues = new Object[parameters.length];
