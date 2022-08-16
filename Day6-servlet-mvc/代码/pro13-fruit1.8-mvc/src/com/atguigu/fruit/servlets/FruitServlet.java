@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.List;
 
 @WebServlet("/fruit.do")
@@ -22,14 +20,38 @@ public class FruitServlet extends ViewBaseServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
 
+        String operate = request.getParameter("operate");
+        if(StringUtil.isEmpty(operate)){
+            operate = "index";
+        }
+        switch(operate){
+            case "index":
+                index(request,response);
+                break;
+            case "add":
+                add(request,response);
+                break;
+            case "update":
+                update(request,response);
+                break;
+            case "edit":
+                edit(request,response);
+                break;
+            case "del":
+                del(request,response);
+                break;
+            default:
+                throw new RuntimeException("response值非法");
+        }
 
 
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //1.设置编码
-        request.setCharacterEncoding("utf-8");
+        //1.设置编码(往上統一)
+
 
         //2.获取参数
         String fidStr = request.getParameter("fid");
@@ -73,7 +95,6 @@ public class FruitServlet extends ViewBaseServlet {
     }
 
     private void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
 
         String fname = request.getParameter("fname");
         Integer price = Integer.parseInt(request.getParameter("price")) ;
