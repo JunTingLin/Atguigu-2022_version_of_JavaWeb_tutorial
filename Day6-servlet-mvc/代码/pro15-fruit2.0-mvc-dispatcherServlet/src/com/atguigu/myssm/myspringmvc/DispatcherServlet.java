@@ -23,6 +23,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @WebServlet("*.do")
+//注意:星號前面不用加"/"斜槓
+
 public class DispatcherServlet extends HttpServlet {
 
     private Map<String,Object> beanMap = new HashMap<>();
@@ -100,6 +102,7 @@ public class DispatcherServlet extends HttpServlet {
             Method method = controllerBeanObj.getClass().getDeclaredMethod(operate,HttpServletRequest.class,HttpServletResponse.class);
             if(method!=null){
                 method.setAccessible(true);
+                //注意: controllerBeanObj(ex:FruitController)裡面的方法有可能是private私有的
                 method.invoke(controllerBeanObj,request,response);
             }else{
                 throw new RuntimeException("operate值非法!");
