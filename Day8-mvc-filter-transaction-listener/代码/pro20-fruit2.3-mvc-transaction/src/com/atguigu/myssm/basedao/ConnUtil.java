@@ -13,7 +13,7 @@ public class ConnUtil {
     public static final String DRIVER = "com.mysql.jdbc.Driver" ;
     public static final String URL = "jdbc:mysql://localhost:3306/fruitdb?useUnicode=true&characterEncoding=utf-8&useSSL=false";
     public static final String USER = "root";
-    public static final String PWD = "123456" ;
+    public static final String PWD = "root" ;
 
     private static Connection createConn(){
         try {
@@ -43,7 +43,8 @@ public class ConnUtil {
         }
         if(!conn.isClosed()){
             conn.close();
-            threadLocal.set(null);
+            //threadLocal.set(null);
+            threadLocal.remove();
         }
     }
 }

@@ -62,7 +62,8 @@ review:
          Thread t = Thread.currentThread(); //获取当前的线程
          ThreadLocalMap map = getMap(t);    //每一个线程都维护各自的一个容器（ThreadLocalMap）
          if (map != null)
-             map.set(this, value);          //这里的key对应的是ThreadLocal，因为我们的组件中需要传输（共享）的对象可能会有多个（不止Connection）
+             map.set(this, value);          //这里的key对应的是ThreadLocal，因为我们的组件中需要传输（共享）的对象可能会有多个（不只Connection）
+                                            //補充:一個執行緒(企業)可能會有多個ThreadLocal(輸送帶)，每個ThreadLocal只有一個value(conn)(工具箱)，鍵值隊紀錄在執行緒裡ThreadLocalMap中
          else
              createMap(t, value);           //默认情况下map是没有初始化的，那么第一次往其中添加数据时，会去初始化
      }
