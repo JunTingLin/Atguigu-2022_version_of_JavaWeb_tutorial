@@ -9,6 +9,8 @@
     </bean>
     <bean id="fruit" class="com.atguigu.fruit.controllers.FruitController">
         <property name="fruitService" ref="fruitService"/>
+        <!--  補充:前面name對映private FruitService fruitService = null 這個Field
+                  後面ref對映beanMap裡面的id，也就是<bean id="fruitService"...      -->
     </bean>
 </beans>
 <!--
