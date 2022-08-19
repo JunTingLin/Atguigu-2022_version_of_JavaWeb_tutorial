@@ -10,6 +10,9 @@
     <div id="div0">
         <div id="div_container">
             <p class="center">用户登录1</p>
+        <!-- 注意:這邊不能直接訪問login.html，要訪問page.do?operate=page&page=login       -->
+        <!--  page.do找到pageController、operate=page找到pageController裡面的page方法、page=login傳入參數到page，最後導向/page.index         -->
+        <!--如果直接訪問login.html，會沒有執行super.processTemplate()，thymeleaf表達式會失效-->
             <form th:action="@{/user.do}" method="get">
                 <input type="hidden" name="operate" value="login"/>
                 <table>

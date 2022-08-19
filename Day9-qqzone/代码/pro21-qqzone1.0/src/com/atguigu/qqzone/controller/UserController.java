@@ -19,7 +19,7 @@ public class UserController {
         if(userBasic!=null){
             //1-1 获取相关的好友信息
             List<UserBasic> friendList = userBasicService.getFriendList(userBasic);
-            //1-2 获取相关的日志列表信息(但是，日志只有id，没有其他信息）
+            //1-2 获取相关的日志列表信息
             List<Topic> topicList = topicService.getTopicList(userBasic);
 
             userBasic.setFriendList(friendList);

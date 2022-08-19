@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>thymeleaf內置對象(list)</title>
+</head>
+<body>
+    <p>#list对象isEmpty方法判断集合整体是否为空aNotEmptyList：
+        <span th:text="${#lists.isEmpty(aNotEmptyList)}">测试#lists</span>
+    </p>
+    <p>#list对象isEmpty方法判断集合整体是否为空anEmptyList：
+        <span th:text="${#lists.isEmpty(anEmptyList)}">测试#lists</span>
+    </p>
+</body>
+</html>
