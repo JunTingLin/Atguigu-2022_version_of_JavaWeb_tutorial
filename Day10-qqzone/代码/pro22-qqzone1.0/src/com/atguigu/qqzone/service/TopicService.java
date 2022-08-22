@@ -16,4 +16,6 @@ public interface TopicService {
 
     //删除特定的topic
     void delTopic(Integer id);
+
+    int addTopic(Topic topic);
 }
