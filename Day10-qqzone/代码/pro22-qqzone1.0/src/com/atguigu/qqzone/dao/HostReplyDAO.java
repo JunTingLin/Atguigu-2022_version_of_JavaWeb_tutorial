@@ -7,4 +7,6 @@ public interface HostReplyDAO {
     HostReply getHostReplyByReplyId(Integer replyId);
     //删除特定的HostReply
     void delHostReply(Integer id);
+    //添加HostReply
+    void addHostReply(HostReply hostReply);
 }

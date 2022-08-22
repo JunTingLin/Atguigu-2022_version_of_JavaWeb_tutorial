@@ -79,7 +79,24 @@
                             <li style="color:#6e0000;font-size:12px;width: 100%;border:0px solid red;" th:text="${reply.hostReply.content}">你以为我是慕容复的人，所以和我比试？段兄弟年纪轻轻，就有如此武学修为，实属罕见！武林早已盛传大理段氏有一门绝学，叫六脉神剑，能以无形剑气杀人，果然真有此门神功！</li>
                             <li style="color:#6e0000;font-size:12px;width:100%;border:0px solid blue;text-align: right;margin-right: 8px;" th:text="|主人回复于${reply.hostReply.hostReplyDate}|">主人回复于2021/10/01 11:50:30</li>
                         </ul>
-                        <a th:id="|a${reply.id}|" th:unless="${reply.hostReply!=null}"  href="#" style="float: right;display: none;">主人回复</a>
+                        <a th:id="|a${reply.id}|" th:unless="${reply.hostReply!=null}" th:if="${session.userBasic.id==session.friend.id}"  th:onmousedown="|showDelImg('b${reply.id}')|"  href="#" style="float: right;display: none;">主人回复</a>
+                        <form th:id="|b${reply.id}|" action="hostReply.do" method="post" style="display:none">
+                            <input type="hidden" name="operate" value="addHostReply"/>
+                            <input type="hidden" name="replyId" th:value="${reply.id}"/>
+                            <input type="hidden" name="topicId" th:value="${session.topic.id}"/>
+                            <table>
+                                <tr>
+                                    <th>回复内容：</th>
+                                    <td><textarea name="content" rows="3">haha这里是另一个主人回复！</textarea></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">
+                                        <input type="submit" value=" 回 复 "/>
+                                        <input type="reset" value=" 重 置 "/>
+                                    </th>
+                                </tr>
+                            </table>
+                        </form>
                     </td>
                 </tr>
             </table>

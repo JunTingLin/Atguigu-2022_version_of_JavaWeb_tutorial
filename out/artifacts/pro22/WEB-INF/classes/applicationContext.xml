@@ -45,6 +45,9 @@
     <bean id="reply" class="com.atguigu.qqzone.controller.ReplyController">
         <property name="replyService" ref="replyService"/>
     </bean>
+    <bean id="hostReply" class="com.atguigu.qqzone.controller.HostReplyController">
+        <property name="hostReplyService" ref="hostReplyService"/>
+    </bean>
 
 
 
