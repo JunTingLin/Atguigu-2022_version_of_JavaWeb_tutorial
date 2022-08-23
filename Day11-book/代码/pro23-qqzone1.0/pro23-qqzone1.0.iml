@@ -9,6 +9,7 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
+        <sourceRoots />
       </configuration>
     </facet>
   </component>
@@ -34,6 +35,15 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../../../00.sql和jar/01.jar/mysql-connector-java-5.1.45-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../00.sql和jar/01.jar/druid-1.1.10.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

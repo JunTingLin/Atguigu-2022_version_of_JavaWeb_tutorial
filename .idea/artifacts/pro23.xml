@@ -16,6 +16,7 @@
           <element id="file-copy" path="$PROJECT_DIR$/00.sql和jar/01.jar/thymeleaf_lib/attoparser-2.0.5.RELEASE.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/00.sql和jar/01.jar/thymeleaf_lib/thymeleaf-3.0.12.RELEASE.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/00.sql和jar/01.jar/mysql-connector-java-5.1.45-bin.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/00.sql和jar/01.jar/druid-1.1.10.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="pro23-qqzone1.0/web/Web" />

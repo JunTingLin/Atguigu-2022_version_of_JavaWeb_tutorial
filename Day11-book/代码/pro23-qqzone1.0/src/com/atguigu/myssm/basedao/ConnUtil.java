@@ -1,8 +1,9 @@
 package com.atguigu.myssm.basedao;
 
+import com.alibaba.druid.pool.DruidDataSource;
+
 import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -33,11 +34,23 @@ public class ConnUtil {
 
     private static Connection createConn(){
         try {
+            DruidDataSource druidDataSource = new DruidDataSource();
+            druidDataSource.setDriverClassName(DRIVER);
+            druidDataSource.setUrl(URL);
+            druidDataSource.setUsername(USER);
+            druidDataSource.setPassword(PWD);
+
+            druidDataSource.setMaxActive(5000);
+            druidDataSource.setMinIdle(3);
+            druidDataSource.setMaxActive(10);
+
+            return druidDataSource.getConnection();
+
             //1.加载驱动
-            Class.forName(DRIVER);
+            //Class.forName(DRIVER);
             //2.通过驱动管理器获取连接对象
-            return DriverManager.getConnection(URL, USER, PWD);
-        } catch (ClassNotFoundException | SQLException e) {
+            //return DriverManager.getConnection(URL, USER, PWD);
+        } catch (/*ClassNotFoundException |*/ SQLException e) {
             e.printStackTrace();
         }
         return null ;
