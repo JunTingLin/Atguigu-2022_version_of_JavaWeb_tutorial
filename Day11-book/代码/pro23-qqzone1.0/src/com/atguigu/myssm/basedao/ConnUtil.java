@@ -1,7 +1,8 @@
 package com.atguigu.myssm.basedao;
 
-import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.pool.DruidDataSourceFactory;
 
+import javax.sql.DataSource;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -13,20 +14,16 @@ public class ConnUtil {
     //private static ThreadLocal<Object> threadLocal2 = new ThreadLocal<>();
     //private static ThreadLocal<Object> threadLocal3 = new ThreadLocal<>();
 
-    public static String DRIVER;
-    public static String URL ;
-    public static String USER ;
-    public static String PWD ;
 
+
+    static Properties properties = new Properties();
+    static DataSource druidDataSource;
+    //注意: 這裡把老師的範本修正成全域靜態
     static {
         InputStream is = ConnUtil.class.getClassLoader().getResourceAsStream("jdbc.properties");
-        Properties properties = new Properties();
         try {
             properties.load(is);
-            DRIVER = properties.getProperty("jdbc.driver");
-            URL = properties.getProperty("jdbc.url");
-            USER = properties.getProperty("jdbc.user");
-            PWD = properties.getProperty("jdbc.pwd");
+            druidDataSource = DruidDataSourceFactory.createDataSource(properties);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -34,26 +31,11 @@ public class ConnUtil {
 
     private static Connection createConn(){
         try {
-            DruidDataSource druidDataSource = new DruidDataSource();
-            druidDataSource.setDriverClassName(DRIVER);
-            druidDataSource.setUrl(URL);
-            druidDataSource.setUsername(USER);
-            druidDataSource.setPassword(PWD);
-
-            druidDataSource.setMaxActive(5000);
-            druidDataSource.setMinIdle(3);
-            druidDataSource.setMaxActive(10);
-
             return druidDataSource.getConnection();
-
-            //1.加载驱动
-            //Class.forName(DRIVER);
-            //2.通过驱动管理器获取连接对象
-            //return DriverManager.getConnection(URL, USER, PWD);
-        } catch (/*ClassNotFoundException |*/ SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null ;
+        return null;
     }
 
     public static Connection getConn(){
