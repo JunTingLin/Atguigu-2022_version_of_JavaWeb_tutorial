@@ -17,7 +17,7 @@ public class ReplyController {
         Reply reply = new Reply(content , new Date() , author , new Topic(topicId));
         replyService.addReply(reply);
         return "redirect:topic.do?operate=topicDetail&id="+topicId;
-        // detail.html
+        //不能直接發給模板detail.html
     }
 
     public String delReply(Integer replyId , Integer topicId){

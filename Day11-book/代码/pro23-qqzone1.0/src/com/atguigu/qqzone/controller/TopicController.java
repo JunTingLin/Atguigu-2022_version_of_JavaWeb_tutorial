@@ -7,8 +7,6 @@ import com.atguigu.qqzone.service.ReplyService;
 import com.atguigu.qqzone.service.TopicService;
 
 import javax.servlet.http.HttpSession;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -23,9 +21,19 @@ public class TopicController {
         return "frames/detail";
     }
 
+    public String addTopic(String title ,String content , HttpSession session){
+        UserBasic author = (UserBasic)session.getAttribute("userBasic");
+        Topic topic = new Topic(title , content , new Date() , author);
+        int topicId = topicService.addTopic(topic); //接收新增到資料庫的id
+        return "redirect:topic.do?operate=topicDetail&id="+topicId;
+        //不能直接發給模板detail.html
+    }
+
     public String delTopic(Integer topicId){
         topicService.delTopic(topicId);
         return "redirect:topic.do?operate=getTopicList" ;
+        //補充:原本還需要&topicId=XXX，但此參數直接從session裡面獲取
+        //其實也可直接 return "index"，直接重新Thymeleaf渲染index.html
     }
 
     public String getTopicList(HttpSession session){

@@ -41,6 +41,11 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
+    public int addTopic(Topic topic) {
+        return topicDAO.addTopic(topic);
+    }
+
+    @Override
     public Topic getTopicById(Integer id) {
         Topic topic = getTopic(id);
         List<Reply> replyList = replyService.getReplyListByTopicId(topic.getId());

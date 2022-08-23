@@ -110,7 +110,7 @@
 3. 系统启动时，我们访问的页面是： http://localhost:8080/pro23/page.do?operate=page&page=login
    为什么不是： http://localhost:8080/pro23/login.html  ?
    答： 如果是后者，那么属于直接访问静态页面。那么页面上的thymeleaf表达式（标签）浏览器是不能识别的
-       我们访问前者的目的其实就是要执行 ViewBaseServlet中的processTemplete()
+       我们访问前者的目的其实就是要执行 ViewBaseServlet中的processTemplate()
 
 4. http://localhost:8080/pro23/page.do?operate=page&page=login 访问这个URL，执行的过程是什么样的？
    答：
@@ -134,9 +134,9 @@
    9) DispatcherServlet接收到返回值，然后处理视图
       目前处理视图的方式有两种： 1.带前缀redirect:    2.不带前缀
       当前，返回"login"，不带前缀
-      那么执行  super.processTemplete("login",request,response);
-   10) 此时ViewBaseServlet中的processTemplete方法会执行，效果是：
-      在"login"这个字符串前面拼接 "/"  (其实就是配置文件中view-prefixe配置的值)
+      那么执行  super.processTemplate("login",request,response);
+   10) 此时ViewBaseServlet中的processTemplate方法会执行，效果是：
+      在"login"这个字符串前面拼接 "/"  (其实就是配置文件中view-prefix配置的值)
       在"login"这个字符串后面拼接 ".html" (其实就是配置文件中view-suffix配置的值)
       最后进行服务器转发
 
@@ -146,8 +146,8 @@
    3. 在web.xml文件中配置：
       1) 配置前缀和后缀，这样thymeleaf引擎就可以根据我们返回的字符串进行拼接，再跳转
         <context-param>
-                                    <param-name>view-prefix</param-name>
-                                    <param-value>/</param-value>
+            <param-name>view-prefix</param-name>
+            <param-value>/</param-value>
         </context-param>
         <context-param>
             <param-name>view-suffix</param-name>
@@ -189,6 +189,7 @@
           <input type="text" name="loginId" />
           public String login(String loginId , String pwd , HttpSession session){
           ④ 另外，需要注意的是： Controller中的方法中的参数不一定都是通过请求参数获取的
+          補充: 下面這段程式是出現在DispatcherServlet中
           if("request".equals...) else if("response".equals....) else if("session".equals....){
             直接赋值
           }else{
@@ -196,7 +197,7 @@
             request.getParameter("loginId") .....
           }
       7）  DispatcherServlet中步骤大致分为：
-          0. 从application作用域获取IOC容器
+          0. 从application作用域获取IOC容器(init()方法，只執行一次)
           1. 解析servletPath ， 在IOC容器中寻找对应的Controller组件
           2. 准备operate指定的方法所要求的参数
           3. 调用operate指定的方法

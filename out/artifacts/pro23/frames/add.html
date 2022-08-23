@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div id="div_add_topic">
+    <p>新增日誌</p>
+    <form action="topic.do" method="post">
+        <input type="hidden" name="operate" value="addTopic"/>
+        <table>
+            <tr>
+                <th style="width: 25%">日誌標題：</th>
+                <td><input type="text" name="title" value="這是測試日誌標題"/></td>
+            </tr>
+            <tr>
+                <th>内容：</th>
+                <td><textarea name="content" rows="3" >這是測試日誌內容</textarea></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value=" 回 复 "/>
+                    <input type="reset" value=" 重 置 "/>
+                </th>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

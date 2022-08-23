@@ -14,8 +14,8 @@ public class TopicDAOImpl extends BaseDAO<Topic> implements TopicDAO {
     }
 
     @Override
-    public void addTopic(Topic topic) {
-
+    public int addTopic(Topic topic) {
+        return super.executeUpdate("insert into t_topic(id,title,content,topicDate,author) values(0,?,?,?,?)" , topic.getTitle() , topic.getContent() , topic.getTopicDate() ,topic.getAuthor().getId());
     }
 
     @Override
