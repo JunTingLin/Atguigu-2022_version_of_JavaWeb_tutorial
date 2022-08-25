@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script language="JavaScript">
-        var reg = /\w/gim ;        // m表示多行匹配
+        var reg = /\w/gim ;        // \w表示字母、底線、數字
         var str = "a>b_c|d\nf?g";
         //var str = ">a|\n?";
         str = str.replace(reg,"A");
         console.log(str);
         /*
-        var flag = reg.test(str);
-        console.log(flag);
+        var flag = reg.test(str);  // 只要有一個符合即可
+        console.log(flag);  // true
         */
     </script>
 </head>
