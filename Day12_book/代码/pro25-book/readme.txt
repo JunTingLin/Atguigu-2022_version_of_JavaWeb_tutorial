@@ -39,5 +39,9 @@
    尝试清除 Cookie.
    ERR_TOO_MANY_REDIRECTS
 
+本人更新sql:
+1. t_book表多創建bookStatus欄位
+2. t_order表刪除訂單總金額orderMoney為0的訂單
+
 
 
