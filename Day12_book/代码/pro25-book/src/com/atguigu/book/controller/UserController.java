@@ -23,6 +23,7 @@ public class UserController {
             user.setCart(cart);
             session.setAttribute("currUser",user);
             return "redirect:book.do";
+            //補充: return "redirect:book.do/operate=index"; 但默認就是index可不寫
         }
         return "user/login";
     }

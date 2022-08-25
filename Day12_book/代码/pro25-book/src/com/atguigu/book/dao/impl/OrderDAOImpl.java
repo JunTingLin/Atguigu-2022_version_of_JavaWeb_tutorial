@@ -29,5 +29,6 @@ public class OrderDAOImpl extends BaseDAO<OrderBean> implements OrderDAO {
                 "ON t1.id = t2.orderBean WHERE t1.orderUser = ? " +
                 ") t3 WHERE t3.orderBean = ? GROUP BY t3.orderBean" ;
         return ((BigDecimal)executeComplexQuery(sql,orderBean.getOrderUser().getId(),orderBean.getId())[0]).intValue();
+        //補充另一個簡單的發法:用orderBean的id查出对应的orderItem项，orderItem中的buyCount之和就是totalBookCount
     }
 }

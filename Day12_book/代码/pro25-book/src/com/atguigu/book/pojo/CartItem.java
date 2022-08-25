@@ -60,7 +60,7 @@ public class CartItem {
     }
 
     public Double getXj() {
-        BigDecimal bigDecimalPrice = new BigDecimal(""+getBook().getPrice());
+        BigDecimal bigDecimalPrice = new BigDecimal(""+getBook().getPrice());//補充:加個""目的是為了變成String
         BigDecimal bigDecimalBuyCount = new BigDecimal(""+buyCount);
         BigDecimal bigDecimalXJ = bigDecimalPrice.multiply(bigDecimalBuyCount);
         xj = bigDecimalXJ.doubleValue() ;

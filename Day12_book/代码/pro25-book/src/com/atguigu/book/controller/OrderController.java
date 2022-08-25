@@ -17,6 +17,7 @@ public class OrderController {
     //结账
     public String checkout(HttpSession session){
         OrderBean orderBean = new OrderBean() ;
+        //這邊為了簡化用個過時的方法，也可使用qqzone最後一堂課教的SimpleDateFormat
         Date now = new Date();
         int year = now.getYear();
         int month = now.getMonth() ;
