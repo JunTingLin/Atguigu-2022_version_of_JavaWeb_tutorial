@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script language="JavaScript">
-        var reg = /a|d/gim ;      // | 表示或者
-        var str = "abcdefg";
+        var reg = /[l]{2,4}/gim ;      // [ - ] 中括号中的 - 表示范围
+        var str = "ablllhellowlllllorldc";
         str = str.replace(reg,"_");
         document.write(str);
     </script>

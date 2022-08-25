@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script language="JavaScript">
-        var reg = /a|d/gim ;      // | 表示或者
+        var reg = /a|d/gim ;      // [ - ] 中括号中的 - 表示范围
         var str = "abcdefg";
         str = str.replace(reg,"_");
         document.write(str);

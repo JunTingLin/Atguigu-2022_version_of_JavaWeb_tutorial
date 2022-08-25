@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script language="JavaScript">
-        var reg = /a|d/gim ;      // | 表示或者
-        var str = "abcdefg";
-        str = str.replace(reg,"_");
+        var reg = /\b/gim ;        // \b表示匹配单词的开始和结束
+        var str = "hello world";
+        str = str.replace(reg,"A");
         document.write(str);
     </script>
 </head>

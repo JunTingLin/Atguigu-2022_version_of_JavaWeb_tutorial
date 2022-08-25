@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script language="JavaScript">
-        var reg = /a|d/gim ;      // | 表示或者
-        var str = "abcdefg";
-        str = str.replace(reg,"_");
+        //var reg = /^a/gim ;        // ^ 表示匹配开始  $表示匹配结尾
+        var reg = /b$/gim ;
+        var str = "ahelloworldb";
+        str = str.replace(reg,"A");
         document.write(str);
     </script>
 </head>
