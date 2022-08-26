@@ -2,6 +2,8 @@
 # Atguigu-2022_version_of_JavaWeb_tutorial
 此儲存庫除了含原課程代碼外，還加入HW、筆記、個人註解
 
+整合式開發環境(IDE): [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+
 # 課程影片網址
 https://www.bilibili.com/video/BV1AS4y177xJ?p=89&vd_source=e25a5026075c1ac3608949afc338a581
 
