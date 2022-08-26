@@ -20,13 +20,13 @@
         <input type="text" v-model="num"/>
 
         <!-- v-if和v-else之间不可以插入其他节点 -->
-        <!--<div v-if="num%2==0" style="width:200px;height:200px;background-color: chartreuse;">&nbsp;</div>-->
+        <div v-if="num%2==0" style="width:200px;height:200px;background-color: chartreuse;">&nbsp;</div>
         <!--<br/>-->
-        <!--<div v-else="num%2==0" style="width:200px;height:200px;background-color: coral">&nbsp;</div>-->
+        <div v-else="num%2==0" style="width:200px;height:200px;background-color: coral">&nbsp;</div>
 
 
         <!-- v-show -->
-        <!-- v-show是通过display属性来控制这个div是否显示 -->
+        <!-- v-show是通过display属性来控制这个div是否显示，節點不會整個被註解是掉 -->
         <div v-show="num%2==0" style="width:200px;height:200px;background-color:blueviolet;">&nbsp;</div>
     </div>
 </body>

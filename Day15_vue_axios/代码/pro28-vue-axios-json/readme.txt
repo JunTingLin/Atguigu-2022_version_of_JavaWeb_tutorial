@@ -54,6 +54,7 @@
         params:{
             uname:"lina",
             pwd:"ok"
+            //這些值不是寫死的，使從Vue裡面去讀的
         }
       })
       .then(function(value){})          //成功响应时执行的回调        value.data可以获取到服务器响应内容

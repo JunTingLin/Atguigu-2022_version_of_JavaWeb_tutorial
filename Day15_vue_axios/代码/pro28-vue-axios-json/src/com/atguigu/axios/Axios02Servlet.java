@@ -18,7 +18,7 @@ public class Axios02Servlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        StringBuffer stringBuffer = new StringBuffer("");
+        StringBuffer stringBuffer = new StringBuffer(""); //補充:改 new StringBuilder() 也行
         BufferedReader bufferedReader = request.getReader();
         String str = null ;
         while((str=bufferedReader.readLine())!=null){
@@ -29,7 +29,7 @@ public class Axios02Servlet extends HttpServlet {
         //已知 String
         //需要转化成 Java Object
 
-        Gson gson = new Gson();
+        Gson gson = new Gson();  // 補充: new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create(); 也行而且還有setDateFormat()等函數可以調用，更強大
         //Gson有两个API
         //1.fromJson(string,T) 将字符串转化成java object
         //2.toJson(java Object) 将java object转化成json字符串，这样才能响应给客户端

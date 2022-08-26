@@ -19,7 +19,7 @@
                             method:"POST",
                             url:"axios01.do",
                             params:{
-                                uname:vue.uname,
+                                uname:vue.uname,  //注意: 不是this.uname，因為已經近來axios區塊裡面了
                                 pwd:vue.pwd
                             }
                         })
