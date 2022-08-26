@@ -57,6 +57,8 @@ public class CartItemServiceImpl implements CartItemService {
             Book book = bookService.getBook(cartItem.getBook().getId());
             cartItem.setBook(book);
             //此处需要调用getXj()，目的是执行getXj()内部的代码，让book的price乘以buyCount，从而计算出xj这个属性的值
+            //補充: 為何以前使用thymeleaf不需要?
+            //因為thymeleaf屬於伺服器端的模板渲染，會自動調用getter方法
             cartItem.getXj();
         }
 

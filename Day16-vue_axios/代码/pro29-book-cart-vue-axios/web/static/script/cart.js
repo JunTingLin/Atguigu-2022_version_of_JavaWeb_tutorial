@@ -23,6 +23,7 @@ window.onload=function(){
                 axios({
                     method:"POST",
                     url:"cart.do",
+                    //補充: 這邊沒有使用data:{}發送請求體json，因為後端 CartController是使用接收參數的
                     params:{
                         operate:'editCart',
                         cartItemId:cartItemId,
@@ -30,7 +31,7 @@ window.onload=function(){
                     }
                 })
                     .then(function (value) {
-                        vue.getCart();
+                        vue.getCart();  //重新在查一次
                     })
                     .catch(function (reason) {  });
             }

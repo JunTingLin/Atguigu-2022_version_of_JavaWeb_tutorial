@@ -34,6 +34,7 @@ public class CartController {
     public String editCart(Integer cartItemId , Integer buyCount){
         cartItemService.updateCartItem(new CartItem(cartItemId , buyCount));
         return "";
+        //補充: 正常來說這邊會返回自定義數字，告訴前端是否更新成功
     }
 
     public String cartInfo(HttpSession session){

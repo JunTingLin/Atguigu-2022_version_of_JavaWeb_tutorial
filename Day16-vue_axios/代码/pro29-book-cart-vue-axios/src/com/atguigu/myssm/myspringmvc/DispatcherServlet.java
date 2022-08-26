@@ -105,6 +105,7 @@ public class DispatcherServlet extends ViewBaseServlet{
                         String redirectStr = methodReturnStr.substring("redirect:".length());
                         response.sendRedirect(redirectStr);
                     }else if(methodReturnStr.startsWith("json:")){
+                        //下面兩行可不用，因為已經在 CharacterEncodingFilter 的response中設置了
                         response.setCharacterEncoding("utf-8");
                         response.setContentType("application/json;charset=utf-8");
                         String jsonStr = methodReturnStr.substring("json:".length());
